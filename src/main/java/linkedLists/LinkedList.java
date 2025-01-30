@@ -93,10 +93,12 @@ public class LinkedList  implements  Iterable<Node> {
 	 * @param prevNode node before the one we need to remove
 	 */
 	public void removeNodeAfter(Node prevNode) {
-		if (prevNode == null || prevNode.next() == null)
+		if (head == null || prevNode == null || prevNode.next() == null)
 			return; // nothing to do since no node after prevNode
-		prevNode.setNext(prevNode.next().next());
 
+		if (prevNode.next() == tail)
+			tail = prevNode;
+		prevNode.setNext(prevNode.next().next());
 	}
 
 	/** Get the element at the node at "index" k from the end of the list
