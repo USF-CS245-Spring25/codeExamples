@@ -2,7 +2,6 @@ package stacks;
 
 public class Driver {
 	public static void main(String[] args) {
-		
 		// Create an ArrayStack
 		System.out.println("Array-based stack implementation");
 		ArrayStack stack1 = new ArrayStack();
