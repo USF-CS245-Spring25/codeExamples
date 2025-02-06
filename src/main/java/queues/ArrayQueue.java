@@ -6,25 +6,24 @@ public class ArrayQueue implements Queue {
 
 	private Object data[]; // the array that will store the queue
 	private int head;
-	private int tail;
-	private int size; // the maximum # of elements it can hold
+	private int currSize; // # of elements in the queue
 
 	public ArrayQueue(int maxsize) {
 		data = new Object[maxsize];
 		head = 0;
-		tail = 0;
-		size = maxsize;
+		currSize = 0;
 	}
 
 	/** Add an element to the end of the queue, if it's not full */
 	public void enqueue(Object elem) {
 		// Before adding, check if the queue is full
-		if ((tail + 1) % size == head) {
+		if (currSize == data.length) {
 			System.out.println("Queue is full: Can't add an element");
 			return;
 		}
-		data[tail] = elem;
-		tail = (tail + 1) % size;
+		int index = (head + currSize) % data.length;
+		data[index] = elem;
+		currSize++;
 	}
 
 	/**
@@ -40,24 +39,25 @@ public class ArrayQueue implements Queue {
 			return null;
 		}
 		retval = data[head];
-		head = (head + 1) % size;
+		head = (head + 1) % data.length;
+		currSize--;
 		return retval;
 	}
 
 	public boolean empty() {
-		return head == tail;
+		return currSize == 0;
 	}
 
 	public String toString() {
 		String result = "[";
 		int tmpHead = head;
-		if (tmpHead != tail) {
+		int count = 0;
+		while (count < currSize) {
 			result = result + data[tmpHead];
-			tmpHead = (tmpHead + 1) % size;
-			while (tmpHead != tail) {
-				result = result + "," + data[tmpHead];
-				tmpHead = (tmpHead + 1) % size;
-			}
+			if (count < currSize - 1)
+				result = result + ",";
+			tmpHead = (tmpHead + 1) % data.length;
+			count++;
 		}
 		result = result + "]";
 		return result;
