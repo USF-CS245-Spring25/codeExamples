@@ -6,6 +6,7 @@ public class Driver {
 	public static void main(String[] args) {
 
 		// Create a ListQueue
+		/*
 		System.out.println("Linked List implementation of the queue");
 		Queue queue1  = new ListQueue();
 		queue1.enqueue(15);
@@ -16,6 +17,8 @@ public class Driver {
 		System.out.println("Dequeue elem:" + queue1.dequeue());
 		System.out.println("Dequeue elem:" + queue1.dequeue());
 		System.out.println(queue1);
+
+		 */
 
 		// Create an ArrayQueue
 		System.out.println();
@@ -31,6 +34,8 @@ public class Driver {
 		System.out.println(queue2);
 		System.out.println("Dequeued: " + queue2.dequeue());
 		System.out.println(queue2);
+
+
 
 	}
 }
