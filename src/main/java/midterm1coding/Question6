@@ -1,0 +1,31 @@
+cs245-01 Midterm 1, Question 6
+--------------------------------
+
+Suppose we implement a stack holding n elements using an array, and push() and pop() methods must be efficient.
+Suppose we do not grow the stack if it is full.
+(a)	Will the top of the stack will be at index 0 or at index n-1?
+(b)	Give Theta of the running time for methods push(), pop(), isEmpty().
+
+Solution: The top of the stack should be at index n-1, at the end of the array.
+Because in order to push the element, we just need to place the new element at index top,
+and increment the top - this is Theta(1).
+In order to pop the element from the end of the array, we will just decrement the index top,
+and return the element of the array at index top, the running time is Theta(1).
+
+If we were to make the top of the stack at index 0, pushing and popping elements would involve shifting n elements to the right or left,
+this would be Theta(n) which is less efficient than the approach described above.
+
+
+cs245-02 Midterm 1, Question 6
+--------------------------------
+
+Suppose we want to implement a stack using a singly linked list so that push and pop methods are as efficient as possible.
+•	Should the top of the stack be at the head or at the tail of the linked list? Why?
+•	Give Theta of the running time for methods push(), pop(), isEmpty().
+
+The top of the stack should be at the head. Pushing the element will involve insertion at the head which is Theta(1),
+and popping an element will involve removing the head which is Theta(1).
+If the top of the stack were at the tail, pushing the new element would still be Theta(1) (insertion after tail),
+but popping the element would involve traversing the list to find the node before the tail - since to remove the tail,
+we need to change the "next" reference of the node before it. Finding such a node would take Theta(n) time, which is less efficient than
+the approach that pushes/pops at the head.
