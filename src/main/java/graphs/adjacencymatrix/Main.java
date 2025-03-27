@@ -19,10 +19,15 @@ public class Main {
          2---------------->3<--- 5
          */
 
-        System.out.println("No outgoing edges:");
+        System.out.print("No outgoing edges:");
         graph.printNodesWithoutOutgoingEdges(); // 3, 4
-        System.out.println("No incoming edges:");
+        System.out.println();
+        System.out.print("No incoming edges:");
         graph.printNodesWithoutIncomingEdges(); // 5
+        System.out.println();
+
+        System.out.println("DFS: ");
+        graph.dfsMain();
     }
 
 }
